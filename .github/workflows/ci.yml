@@ -8,6 +8,21 @@ permissions:
   contents: read
 
 jobs:
+  api-go-contract:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          repository: ifuschini/idelium-api-go
+          ref: 68d22b2
+          path: idelium-api-go
+      - name: Validate Go-owned CLI smoke targets
+        working-directory: idelium-api-go
+        run: |
+          python3 scripts/build_cli_smoke_targets.py --check
+          python3 scripts/validate_golden_fixtures.py testdata/golden/laravel-parallel-runs
+
   quality:
     runs-on: ubuntu-24.04
     strategy:
