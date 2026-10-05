@@ -78,7 +78,7 @@ setup(
     # https://packaging.python.org/en/latest/requirements.html
     install_requires=['selenium>=4.27,<5',
                       'libmagic>=1,<2',
-                      'Appium-Python-Client>=4,<6',
+                      'Appium-Python-Client>=4,<7',
                       'webdriver-manager>=4,<5',
                       'Pillow>=10,<13',
                       'requests>=2.32,<3',
